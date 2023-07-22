@@ -44,38 +44,37 @@ public abstract class ActionBase {
     /**
      * フロントコントローラから呼び出されるメソッド
      * @throws ServletException
-     * @throw IOException
+     * @throws IOException
      */
     public abstract void process() throws ServletException, IOException;
 
     /**
      * パラメータのcommandの値に該当するメソッドを実行する
      * @throws ServletException
-     * @throw IOException
+     * @throws IOException
      */
     protected void invoke()
-             throws ServletException, IOException {
+            throws ServletException, IOException {
 
         Method commandMethod;
         try {
 
             //パラメータからcommandを取得
-        String command = request.getParameter(ForwardConst.CMD.getValue());
+            String command = request.getParameter(ForwardConst.CMD.getValue());
 
-        //commandに該当するメソッドを実行する
+        //ommandに該当するメソッドを実行する
         //(例: action=Employee command=show の場合 EmployeeActionクラスのshow()メソッドを実行する)
         commandMethod = this.getClass().getDeclaredMethod(command, new Class[0]);
-        commandMethod.invoke(this, new Object[0]); //メソッドの渡す引数はなし
+        commandMethod.invoke(this, new Object[0]); //メソッドに渡す引数はなし
 
     } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-            | InvocationTargetException | NullPointerException e) {
+          | InvocationTargetException | NullPointerException e) {
 
         //発生した例外をコンソールに表示
        e.printStackTrace();
        //commandの値が不正で実行できない場合エラー画面を呼び出し
        forward(ForwardConst.FW_ERR_UNKNOWN);
     }
-
 }
 
 /**
@@ -200,7 +199,7 @@ protected int getPage() {
      * @param key パラメータ名
      * @param value パラメータの値
      */
-    protected<V>void putRequestScope(AttributeConst key, V value) {
+    protected <V> void putRequestScope(AttributeConst key, V value) {
         request.setAttribute(key.getValue(), value);
     }
 
@@ -237,8 +236,5 @@ protected int getPage() {
         @SuppressWarnings("unchecked")
         protected <R> R getContextScope(PropertyConst key) {
             return (R) context.getAttribute(key.getValue());
-
         }
-
 }
-

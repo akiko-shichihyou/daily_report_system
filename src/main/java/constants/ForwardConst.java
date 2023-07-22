@@ -34,7 +34,7 @@ public enum ForwardConst {
     FW_EMP_INDEX("employees/index"),
     FM_EMP_SHOW("employees/show"),
     FW_EMP_NEW("employees/new"),
-    FW_EMP_EDT("employees/edit"),
+    FW_EMP_EDIT("employees/edit"),
     FW_REP_INDEX("reports/index"),
     FW_REP_SHOW("reports/show"),
     FW_REP_NEW("reports/new"),
@@ -45,9 +45,9 @@ public enum ForwardConst {
      */
     private final String text;
 
-     /**
-      * コンストラクタ
-      */
+    /**
+     * コンストラクタ
+     */
     private ForwardConst(final String text) {
         this.text = text;
     }
