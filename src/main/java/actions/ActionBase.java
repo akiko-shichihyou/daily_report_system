@@ -209,7 +209,7 @@ protected int getPage() {
      *@return パラメータの値
      */
     @SuppressWarnings("unchecked")
-    protected<R> R getsessionScope(AttributeConst key) {
+    protected<R> R getSessionScope(AttributeConst key) {
             return (R) request.getSession().getAttribute(key.getValue());
         }
 
