@@ -32,7 +32,7 @@ public enum ForwardConst {
     FW_TOP_INDEX("topPage/index"),
     FW_LOGIN("login/login"),
     FW_EMP_INDEX("employees/index"),
-    FM_EMP_SHOW("employees/show"),
+    FW_EMP_SHOW("employees/show"),
     FW_EMP_NEW("employees/new"),
     FW_EMP_EDIT("employees/edit"),
     FW_REP_INDEX("reports/index"),
@@ -53,11 +53,10 @@ public enum ForwardConst {
     }
 
     /**
-     * 値（文字列）取得
+     * 値(文字列)取得
      */
     public String getValue() {
         return this.text;
     }
+
 }
-
-

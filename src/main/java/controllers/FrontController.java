@@ -13,7 +13,6 @@ import actions.ActionBase;
 import actions.UnknownAction;
 import constants.ForwardConst;
 
-
 /**
  * フロントコントローラ
  *
