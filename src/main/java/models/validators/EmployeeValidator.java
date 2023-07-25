@@ -103,7 +103,7 @@ public class EmployeeValidator {
     /**
      * パスワードの入力チェックを行い、エラーメッセージを返却
      * @param password パスワード
-     * @param passwordCheckFlag パスワードを実施するかどうか（実施する:true 実施しない:false)
+     * @param passwordCheckFlag パスワードの入力チェックを実施するかどうか（実施する:true 実施しない:false)
      * @return エラーメッセージ
      */
     private static String validatePassword(String password, Boolean passwordCheckFlag) {

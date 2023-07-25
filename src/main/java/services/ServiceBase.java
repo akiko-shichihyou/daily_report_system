@@ -9,7 +9,8 @@ import utils.DBUtil;
  */
 public class ServiceBase {
 
-    /** EntityManagerインスタンス
+    /**
+     * EntityManagerインスタンス
      */
     protected EntityManager em = DBUtil.createEntityManager();
 

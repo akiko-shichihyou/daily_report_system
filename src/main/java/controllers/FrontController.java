@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import actions.ActionBase;
 import actions.UnknownAction;
 import constants.ForwardConst;
-
 /**
  * フロントコントローラ
  *
@@ -45,13 +44,14 @@ public class FrontController extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         doGet(request, response);
     }
 
     /**
      * リクエストパラメータの値から該当するActionクラスのインスタンスを作成し、返却する
-     * (例：パラメータが action=Employee の場合、actions.EmployeeActionオブジェクト）
+     * (例:パラメータが action=Employee の場合、actions.EmployeeActionオブジェクト）
      * @param request リクエスト
      * @param response レスポンス
      * @return
@@ -62,7 +62,7 @@ public class FrontController extends HttpServlet {
         ActionBase action = null;
         try {
 
-        //リクエストからパラメータ"action"の値を取得 (例:”Employee"、"Report")
+        //リクエストからパラメータ"action"の値を取得 (例:"Employee"、"Report")
         String actionString = request.getParameter(ForwardConst.ACT.getValue());
 
         //該当するActionオブジェクトを作成 (例:リクエストからパラメータ action=Employee の場合、actions.EmployeeActionオブジェクト)
@@ -74,11 +74,10 @@ public class FrontController extends HttpServlet {
                 .newInstance());
 
 } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SecurityException
-        | IllegalArgumentException | InvocationTargetException| NoSuchMethodException e) {
+            | IllegalArgumentException | InvocationTargetException| NoSuchMethodException e) {
 
         //リクエストパラメータに設定されている"action"の値が不正の場合(例:action=xxxx 等、該当するActionクラスがない場合)
         //エラー処理を行うActionオブジェクトを作成
-        e.printStackTrace();//←ここにデバッグ用の出力を追記
         action = new UnknownAction();
     }
     return action;
